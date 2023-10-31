@@ -87,6 +87,12 @@ export async function fetchCardData() {
     };
   } catch (error) {
     console.error("Database Error:", error);
+    return {
+      numberOfCustomers: 0,
+      numberOfInvoices: 0,
+      totalPaidInvoices: "$0",
+      totalPendingInvoices: "$0",
+    };
     // throw new Error("Failed to card data.");
   }
 }
