@@ -10,6 +10,7 @@ import {
 import { ArrowRightIcon } from "@heroicons/react/20/solid";
 import { Button } from "./button";
 import { useFormState, useFormStatus } from "react-dom";
+import { signIn } from "next-auth/react";
 
 export default function LoginForm() {
   const [code, action] = useFormState(authenticate, undefined);
@@ -63,6 +64,7 @@ export default function LoginForm() {
           </div>
         </div>
         <LoginButton />
+        <button onClick={() => signIn("google")}>Sign in with Google</button>
         <div className="flex h-8 items-end space-x-1">
           {code === "CredentialsSignin" && (
             <>
